@@ -1,5 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <malloc.h>
+
+float av(float x, float z)
+{
+ float y;
+ y = x / z;
+ return(y);
+}
 
 int main()
 {
@@ -7,8 +15,10 @@ int main()
     printf("Введите количество оценок: ");
     scanf("%d", &N);
 
-    int a[N];
+    int *a;
     float sum;
+    a = (int*)malloc(N * sizeof(int));
+    
 
     printf("Введите оценки: ");
     for(int i = 0; i < N; i++)
@@ -23,7 +33,7 @@ int main()
      sum += a[i];
     }
 
-    float avg = sum / N;
+    float avg = av(sum, N);
     printf ("Средний балл ученика: %.1f\n",avg);
 
     if(avg >= 4.6)
