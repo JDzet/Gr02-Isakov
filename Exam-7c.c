@@ -6,7 +6,7 @@ float av(float x, float z)
 {
  float y;
  y = x / z;
- return(y);
+ return(x);
 }
 
 int main()
