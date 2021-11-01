@@ -26,7 +26,6 @@ int main()
     if (days != 28) printf("\n");
 
    
-
     #define set_blue printf("\033[1;34m")
     #define set_yellow printf("\033[1;33m")
     #define set_default printf("\033[0m")
