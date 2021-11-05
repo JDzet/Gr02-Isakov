@@ -36,6 +36,23 @@ int main()
     printf("Минимальное значение долара = "); set_blue; printf("%.2f\n", cmin); set_default;
     printf("Максимальное значение долар = "); set_yellow; printf("%.2f\n", cmax); set_default;
 
+    printf("Хотетели начать поиск определённого курса? (y/n): ");
+    char f;
+    scanf("%c", &f);
+    if(f == 'y')
+    {
+        float c = 0;
+        int day = 0;
+        printf("Введите курс: ");
+        scanf("%f", &c);
+
+        for(int i = 0; i < days; i++)
+        {
+            if(c == coeff[i]) day = i+1;
+        }
+        printf("Курс %.2f был %d числа\n", c, day);
+    }
+    if(f == 'n') return 0;
     return 0;
 
 }
