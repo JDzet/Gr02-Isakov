@@ -28,12 +28,13 @@ int main()
     }
 
 
-    FILE *abc = fopen("16TextBin","wb");
+    FILE *abc = fopen("16TextBin","w+");
     for(int i = 0; i < n; i++)
     {
         fprintf(abc, "%s\t%s\t%d\t%d\n", row[i].drag_name, row[i].indications, row[i].exp_years, row[i].mfg_years);
     }
     fwrite(row, sizeof(row), n, abc);
+    fclose(abc);
 
  return 0;
 }
