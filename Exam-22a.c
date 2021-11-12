@@ -32,8 +32,12 @@ int main()
     row[2].year = 2015;
     row[2].price = 1000;
 
-    FILE *f = fopen("extask22.bin","rw+");
+    FILE *f = fopen("extask22.bin","wb+");
     fwrite(row, sizeof(struct table_row), 3, f);
+    fclose(f);
+
+    FILE *f = fopen("extask22.bin", "rb+");
+    fread(row, sizeof(struct table_row), 3, f1);
     fclose(f);
 
     for(int i = 0; i < rows_count; i++)

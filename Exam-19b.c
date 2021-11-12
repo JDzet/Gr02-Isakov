@@ -3,7 +3,9 @@
 
 #define max_ans 5
 #define max_txt 100
-
+char name[25];
+char lastname[25];
+int grnumber;
 struct quest
 {
 int nans;
@@ -20,6 +22,7 @@ int main()
 FILE *f = fopen("question.txt", "r");
 
 int nq;
+printf("Enter your name, lastname and group number\n");
 fscanf(f, "%d", &nq);
 
 for(int i = 0; i < nq; i++)
@@ -33,7 +36,14 @@ for(int i = 0; i < nq; i++)
 }
 
 fclose(f);
+FILE *h = fopen("teststud.txt", "w");
+fgets(name,50,stdin);
+fgets(lastname,50,stdin);
 
+scanf("%d",&grnumber);
+fprintf(h, "%s", name);
+fprintf(h, "%s", lastname);
+fprintf(h, "%d\n", grnumber);
 for(int i = 0; i < nq; i++)
 {
 	puts(test[i].txt);
@@ -42,9 +52,10 @@ for(int i = 0; i < nq; i++)
 
 	int c;
 	scanf("%d", &c);
-
-	if(c == test[i].corr) puts("correct!");
-	else puts("wrong!"); 
+fprintf(h, "%d\n", c);
+	if(c == test[i].corr)     fprintf(h, "correct!\n");
+	else fprintf(h, "wrong!\n");
 }
+fclose(h);
 return 0;
 }
