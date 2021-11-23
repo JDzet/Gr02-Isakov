@@ -57,14 +57,11 @@ int main()
     for(int i = 0; i < row;i++)
     {
         
-        if (strcmp(tab[i].acc, acc) == 0)
+        if (acc == tab[i].acc)
         {
-            printf("%s\n",tab[i].fio);
-            printf("%.2f\n",tab[i].sum);
-            printf("%d\n",tab[i].prc);
-            n++;
+           printf("%d\t%s\t%.2f\t%d\t%.2f\n",tab[i].acc,tab[i].fio,tab[i].sum,tab[i].prc,tab[i].res);
         }
-        
+        n++;
     }
     if (n < 1) printf("not found\n");
     
