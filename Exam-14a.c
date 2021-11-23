@@ -4,10 +4,12 @@
 
 struct record
 {
+    int acc;
     char fio[32];
-    char cat[32];
-    char num[24];
-    char inf[64];
+    float sum;
+    int prc;
+
+    float res;
 };
 
 #define row 3
@@ -16,29 +18,37 @@ struct record tab[row];
 
 int main()
 {
+    char tmp[32];
     for(int i= 0; i < row; i ++)
     {
         printf("[reord %d]\n", i);
 
+        printf("acc: ");
+        gets(tmp);
+        tab[i].acc = atoi(tmp);
+        
         printf("fio: ");
         gets(tab[i].fio);
-        
-        printf("cat: ");
-        gets(tab[i].cat);
 
-        printf("num: ");
-        gets(tab[i].num);
+        printf("sum: ");
+        gets(tmp);
+        tab[i].sum = atof(tmp);
 
-        printf("inf: ");
-        gets(tab[i].inf);
+        printf("prc: ");
+        gets(tmp);
+        tab[i].prc = atof(tmp);
     }
+
+    for(int i = 0; i < row; i++)
+        tab[i].res = tab[i].sum + (tab[i].sum * tab[i].prc / 100.0f) / 12.0f;
 
     printf("\n");
     for(int i = 0; i < row; i++)
     {
-        printf("%s\t%s\t%s\t%s\n",tab[i].fio,tab[i].cat,tab[i].num,tab[i].inf);
+        printf("%d\t%s\t%.2f\t%d\t%.2f\n",tab[i].acc,tab[i].fio,tab[i].sum,tab[i].prc,tab[i].res);
     }
 
+ /*
     printf("search: ");
     char fio[32];
     gets(fio);
@@ -56,5 +66,6 @@ int main()
         
     }
     if (n < 1) printf("not found\n");
+    */
     return 0;
 }

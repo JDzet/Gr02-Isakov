@@ -56,5 +56,29 @@ int main()
         
     }
     if (n < 1) printf("not found\n");
+
+
+    printf("search: ");
+    char cat[32];
+    gets(cat);
+
+    FILE *file;
+
+    int g = 0;
+    file = fopen("Exam13c.txt", "w");
+    for(int i = 0; i < row;i++)
+    {
+        char *p = strtok(tab[i].cat, " ");
+        if (strcmp(p, cat) == 0)
+        {
+            printf("%s\t%s\n",tab[i].fio, tab[i].num);
+            g++;
+            fprintf(file,"%s %s\n",tab[i].fio, tab[i].num);
+        }
+        
+    }
+    fclose(file);
+    if (g < 1) printf("not found\n");
+
     return 0;
 }
